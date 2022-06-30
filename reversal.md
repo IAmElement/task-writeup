@@ -21,5 +21,5 @@ Let's debunk the file on a Linux based system, as that seems like where it belon
 First, we upload the file to a free file sharing service to easily get it over to the VM without using guest additions or similar. In a normal OPSEC respective environment we wouldn't do this,
 however circumstances prevail. Initially, we want to learn the functions of the file to understand what it does. Through fetching .rodata, we were greeted with a lovely string `Oh no! Stack protection :(`
 
-• It has x executable functions, including the x function.
-• The code uses common Linux libraries: libc.so and ld-linux.so.
+- It has x executable functions, including the x function.
+- The code uses common Linux libraries: libc.so and ld-linux.so.
