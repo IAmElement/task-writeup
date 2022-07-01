@@ -23,4 +23,4 @@ however circumstances prevail. Initially, we want to learn the functions of the 
 
 - It has 6 executable functions that are of interest, including the main function.
 - The code uses common Linux libraries: libc.so and ld-linux.so.
-- The functions that stand out are `main` `pwnable` `error` `set_canary` `socket` `write`
+- The functions that stand out are `main` `pwnable` `error` `socket` `write`
