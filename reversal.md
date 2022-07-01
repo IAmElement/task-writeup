@@ -24,3 +24,24 @@ however circumstances prevail. Initially, we want to learn the functions of the 
 - It has 6 executable functions that are of interest, including the main function.
 - The code uses common Linux libraries: libc.so and ld-linux.so.
 - The functions that stand out are `main` `pwnable` `error` `socket` `write`
+
+## Extended Reversal
+There isn't a whole lot we can learn from the above aside from the key functions we need to learn more about. From here, let's further decompile the executable in Ghidra. From this, we've learnt there is some level of obfuscation (or appears to be) on the different functions. I've pulled the following code from the pwnable() function after decompiling it.
+
+```c
+void pwnable(char *param_1)
+
+{
+    int in_GS_OFFSET;
+    char local_40c [1024];
+    int local_c:
+
+    local c = *(int *)(in  GS_OFFSET + 0x14);
+    strcpy(local_40c, param_1);
+    if (local_c != *(int *)(in  GS_OFFSET + 0x14)) {
+        __stack_chk_fail_local();
+    }
+}```
+
+It looks like this copies the string to a local buffer, checks if the stack is still in the same state - if it's not, it calls __stack_chk_fail_local(). If it is, it calls pwnable().
+
