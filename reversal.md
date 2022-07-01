@@ -17,7 +17,7 @@ which right away points to something malicious (given the file name is also `rem
 
 Let's debunk the file on a Linux based system, as that seems like where it belongs.
 
-## Main Reversal
+## Initial Reverse Engineering & Function Dumping
 First, we upload the file to a free file sharing service to easily get it over to the VM without using guest additions or similar. In a normal OPSEC respective environment we wouldn't do this,
 however circumstances prevail. Initially, we want to learn the functions of the file to understand what it does. Through fetching .rodata, we were greeted with a lovely string `Oh no! Stack protection :(`
 
@@ -25,7 +25,7 @@ however circumstances prevail. Initially, we want to learn the functions of the 
 - The code uses common Linux libraries: libc.so and ld-linux.so.
 - The functions that stand out are `main` `pwnable` `error` `socket` `write`
 
-## Extended Reversal
+## Extended Reversal & Decompiling
 There isn't a whole lot we can learn from the above aside from the key functions we need to learn more about. From here, let's further decompile the executable in Ghidra. From this, we've learnt there is some level of obfuscation (or appears to be) on the different functions. I've pulled the following code from the pwnable() function after decompiling it.
 
 ```c
