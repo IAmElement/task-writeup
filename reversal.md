@@ -41,7 +41,8 @@ void pwnable(char *param_1)
     if (local_c != *(int *)(in  GS_OFFSET + 0x14)) {
         __stack_chk_fail_local();
     }
-}```
+}
+```
 
 It looks like this copies the string to a local buffer, checks if the stack is still in the same state - if it's not, it calls __stack_chk_fail_local(). If it is, it calls pwnable().
 
