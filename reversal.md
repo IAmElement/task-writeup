@@ -46,3 +46,10 @@ void pwnable(char *param_1)
 
 It looks like this copies the string to a local buffer, checks if the stack is still in the same state - if it's not, it calls __stack_chk_fail_local(). If it is, it calls pwnable().
 
+-- Reversal is not done by any means, this is just an initial look into the file where time and understanding permits. 
+
+# To-do list
+
+- Decompile other functions 
+- Look for constants (example: found `sockaddr`)
+- Gather general understanding of what this service does prior to beginning exploitation phase
